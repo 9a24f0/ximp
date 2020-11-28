@@ -35,10 +35,6 @@ if __name__ == '__main__':
 	result = soup.find(id='content')
 	urls = getImgUrls(result)
 	labels = getLabels(result)
-	print(urls)
-	print(labels)
-	print(len(urls))
-	print(len(labels))
 	
 	for i in range(len(urls)):
 		img = {
