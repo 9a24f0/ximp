@@ -41,10 +41,12 @@ if __name__ == '__main__':
 	print(len(labels))
 	
 	for i in range(len(urls)):
-		img = {}
-		img[labels[i]] = urls[i]
+		img = {
+		'title': labels[i],
+		'link': urls[i]
+		}
 		content.append(img)
 	
 	with open('radio_urls.json', 'w') as js:
-		json.dump(content, js)
+		json.dump(content, js, indent =4)
 	

@@ -51,8 +51,10 @@ if __name__ == '__main__':
 	urls = getImgUrls(result)
 	labels = getLabels(result)
 	for i in range(len(urls)):
-		img = {}
-		img[labels[i]] = urls[i]
+		img = {
+		'title': labels[i],
+		'link': urls[i]
+		}
 		content.append(img)
 	with open('img_urls.json', 'w') as js:
-		json.dump(content, js)
+		json.dump(content, js, indent=4)
