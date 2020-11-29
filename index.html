@@ -33,8 +33,8 @@
       <button class="dropdown-btn">Data</button>
       <div class="dropdown-container">
         <a href="#">Kaggle</a>
-        <a href="index.html">Wikimedia</a>
-        <a href="radio.html">Radiopaedia</a>
+        <a href="#wiki" onclick="page('wiki')">Wikimedia</a>
+        <a href="#radiopaedia" onclick="page('radio')">Radiopaedia</a>
       </div>
     </div>
 
@@ -43,9 +43,7 @@
       <div class="header">
         <h2>X-ray Image of Pneumonia</h2>
       </div>
-      <div class="prev-image"></div>
       <div class="images"></div>
-      <div class="next-image"></div>
     </div>
 
     <script>
@@ -74,15 +72,32 @@
         document.getElementById("mySidebar").style.display = "none";
       }
 
+      /* For switching content */
+      // url = "";
+
+      // function page() {
+      //   switch(page) {
+      //     case 'radio':
+      //       url = "Radiopaedia" + "/data.json";
+      //       break;
+      //     case 'wiki':
+      //       url = "Wikimedia" + "/data.json";
+      //       break;
+      //   }
+      // }
+
       /* display images */
       $.ajax({
-        url: "Wikimedia/img_urls.json",
+        url: "Wikimedia/data.json",
         dataType: "json",
         type: "get",
         cache: false,
         success: function (data) {
+          document.getElementsByClassName("images")[0].remove();
+          let content = document.createElement("div");
+          content.className = "images";
+          document.getElementById("main").appendChild(content);
           $(data).each(function (index, value) {
-            console.log(index, value.title);
             let card = document.createElement("div");
             card.className = "data";
             card.innerHTML = `<div class="img"><img src="${value.link}"></div>

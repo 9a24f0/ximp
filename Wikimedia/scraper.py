@@ -56,5 +56,5 @@ if __name__ == '__main__':
 		'link': urls[i]
 		}
 		content.append(img)
-	with open('img_urls.json', 'w') as js:
+	with open('data.json', 'w') as js:
 		json.dump(content, js, indent=4)
