@@ -3,7 +3,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-URLS = 'https://radiopaedia.org/search?fbclid=IwAR1w46Ai6R5Yqiwucw6L_gM9o3dwVN_YC5pazixzs0oYf94r-lzODd1nKEI&lang=us&page={}&q=pneumonia&scope=cases'
+URLS = 'https://radiopaedia.org/search?fbclid=IwAR1w46Ai6R5Yqiwucw6L_gM9o3dwVN_YC5pazixzs0oYf94r-lzODd1nKEI&lang=us&modality=X-ray&page={}&q=pneumonia&scope=cases'
 
 def getImgUrls(html):
 	urls = []
@@ -34,10 +34,6 @@ if __name__ == '__main__':
 		result = soup.find(id='content')
 		urls = getImgUrls(result)
 		labels = getLabels(result)
-		print(urls)
-		print(labels)
-		print(len(urls))
-		print(len(labels))
 		
 		for i in range(len(urls)):
 			img = {
