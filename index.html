@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="icon" href="Visualization/logo.png" type="image/icon type">
+    <title>X-ray of Pneumonia</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -20,8 +21,9 @@
       href="https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="Visualization/css/page.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
     <link rel="stylesheet" href="Visualization/css/sidenav.css" />
+    <link rel="stylesheet" href="Visualization/css/page.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -42,10 +44,15 @@
       <div class="header">
         <h2>X-ray Image of Pneumonia</h2>
       </div>
-      <div class="images"></div>
+      <div class="gallery"></div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run('.gallery');
+    </script>
     <script src="Visualization/js/sideNav.js"></script>
     <script src="Visualization/js/dispImg.js"></script>
+    <script src=about.js></script>
   </body>
 </html>

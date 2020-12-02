@@ -20,16 +20,24 @@ function page(page) {
     type: "get",
     cache: false,
     success: function (data) {
-      document.getElementsByClassName("images")[0].remove();
+      document.getElementsByClassName("gallery")[0].remove();
       let content = document.createElement("div");
-      content.className = "images";
+      content.className = "gallery";
       document.getElementById("main").appendChild(content);
       $(data).each(function (index, value) {
         let card = document.createElement("div");
         card.className = "data";
-        card.innerHTML = `<div class="img"><img src="${value.link}"></div>
-                        <div class="label">${value.title}</div>`;
-        document.getElementsByClassName("images")[0].appendChild(card);
+        //card.innerHTML = `<div class="img"><img src="${value.link}"></div>
+        //                <div class="label">${value.title}</div>`;
+
+        card.innerHTML = `
+        <div class="thumbnail">
+                        <img src="${value.link}">
+                    <div class="caption">
+                        <h5>${value.title}</h5>
+                    </div>
+                </div>`
+        document.getElementsByClassName("gallery")[0].appendChild(card);
       });
     },
   });
