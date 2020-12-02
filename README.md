@@ -7,6 +7,10 @@ Here is the structure of the project
 ```
 .
 ├── LICENSE
+├── Kaggle
+│   ├── img
+│   ├── pre_process.py
+│   └── data.json
 ├── Radiopaedia
 │   ├── data.json
 │   └── radio.py
@@ -18,4 +22,4 @@ Here is the structure of the project
 
 Each folder has a file to scrape the data from web source and a json file to store all the link to the images.
 
-We also visualized the data on [GitHub Pages](9a24f0.github.io/ximp/).
+We also visualized the data on [GitHub Pages](https://9a24f0.github.io/ximp/), please check branch [gh-pages](https://github.com/9a24f0/ximp/tree/gh-pages) for the code of the visualization.
