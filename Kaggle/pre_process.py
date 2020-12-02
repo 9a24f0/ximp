@@ -7,13 +7,18 @@ path = "img/"
 dirs = os.listdir( path )
 
 content = []
+i = 0
 
 for file in dirs:
-    img = {
-    'title': file,
-    'link': "img/" + file
-    }
-    content.append(img)
+    i = i + 1
+    if (i <= 500):
+        img = {
+        'title': file,
+        'link': "img/" + file
+        }
+        content.append(img)
+    else:
+        os.remove("img/" + file)
 
 with open('data.json', 'w') as js:
     json.dump(content, js, indent =4)
