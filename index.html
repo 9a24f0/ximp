@@ -20,8 +20,8 @@
       href="https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="sidenav.css"/>
-    <link rel="stylesheet" href="page.css"/>
+    <link rel="stylesheet" href="sidenav.css" />
+    <link rel="stylesheet" href="page.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -73,18 +73,38 @@
       }
 
       /* For switching content */
-      // url = "";
+      url = "";
 
-      // function page() {
-      //   switch(page) {
-      //     case 'radio':
-      //       url = "Radiopaedia" + "/data.json";
-      //       break;
-      //     case 'wiki':
-      //       url = "Wikimedia" + "/data.json";
-      //       break;
-      //   }
-      // }
+      function page(page) {
+        switch (page) {
+          case "radio":
+            url = "Radiopaedia/data.json";
+            break;
+          case "wiki":
+            url = "Wikimedia/data.json";
+            break;
+        }
+
+        $.ajax({
+          url: url,
+          dataType: "json",
+          type: "get",
+          cache: false,
+          success: function (data) {
+            document.getElementsByClassName("images")[0].remove();
+            let content = document.createElement("div");
+            content.className = "images";
+            document.getElementById("main").appendChild(content);
+            $(data).each(function (index, value) {
+              let card = document.createElement("div");
+              card.className = "data";
+              card.innerHTML = `<div class="img"><img src="${value.link}"></div>
+                              <div class="label">${value.title}</div>`;
+              document.getElementsByClassName("images")[0].appendChild(card);
+            });
+          },
+        });
+      }
 
       /* display images */
       $.ajax({
