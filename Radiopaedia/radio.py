@@ -15,6 +15,7 @@ def getModularity(html):
 		modules.append(temp)
 	return modules
 def getImgUrls(html, modules):
+
 	urls = []
 	
 	url = html.find_all('img', class_ = 'media-object centered-image')
@@ -54,10 +55,7 @@ if __name__ == '__main__':
 		modules = getModularity(result)
 		urls = getImgUrls(result, modules)
 		labels = getLabels(result, modules)
-		#print(urls)
-		#print(labels)
-		print(len(urls))
-		print(len(labels))
+
 		
 		for i in range(len(urls)):
 			img = {
