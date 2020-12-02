@@ -25,9 +25,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-    <div id="mySidebar" class="sidenav">
+    <div id="mySidebar" class="sidenav" onload="page('kaggle')">
       <a href="#"
-        >Group 11<button id="btn-close-nav" onclick="closeNav()">☰</button>
+        >Group 10<button id="btn-close-nav" onclick="closeNav()">☰</button>
       </a>
       <a href="#about">About</a>
       <button class="dropdown-btn">Data</button>
@@ -46,89 +46,7 @@
       <div class="images"></div>
     </div>
 
-    <script>
-      /* drop down */
-      var dropdown = document.getElementsByClassName("dropdown-btn");
-      var i;
-
-      for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var dropdownContent = this.nextElementSibling;
-          if (dropdownContent.style.display === "block") {
-            dropdownContent.style.display = "none";
-          } else {
-            dropdownContent.style.display = "block";
-          }
-        });
-      }
-
-      /* open/close side nav */
-      function openNav() {
-        document.getElementById("mySidebar").style.display = "block";
-      }
-
-      function closeNav() {
-        document.getElementById("mySidebar").style.display = "none";
-      }
-
-      /* For switching content */
-      url = "";
-
-      function page(page) {
-        switch (page) {
-          case "radio":
-            url = "Radiopaedia/data.json";
-            break;
-          case "wiki":
-            url = "Wikimedia/data.json";
-            break;
-          case "kaggle":
-            url = "Kaggle/data.json"
-            break;
-        }
-
-        $.ajax({
-          url: url,
-          dataType: "json",
-          type: "get",
-          cache: false,
-          success: function (data) {
-            document.getElementsByClassName("images")[0].remove();
-            let content = document.createElement("div");
-            content.className = "images";
-            document.getElementById("main").appendChild(content);
-            $(data).each(function (index, value) {
-              let card = document.createElement("div");
-              card.className = "data";
-              card.innerHTML = `<div class="img"><img src="${value.link}"></div>
-                              <div class="label">${value.title}</div>`;
-              document.getElementsByClassName("images")[0].appendChild(card);
-            });
-          },
-        });
-      }
-
-      /* display images */
-      $.ajax({
-        url: "Wikimedia/data.json",
-        dataType: "json",
-        type: "get",
-        cache: false,
-        success: function (data) {
-          document.getElementsByClassName("images")[0].remove();
-          let content = document.createElement("div");
-          content.className = "images";
-          document.getElementById("main").appendChild(content);
-          $(data).each(function (index, value) {
-            let card = document.createElement("div");
-            card.className = "data";
-            card.innerHTML = `<div class="img"><img src="${value.link}"></div>
-                              <div class="label">${value.title}</div>`;
-            document.getElementsByClassName("images")[0].appendChild(card);
-          });
-        },
-      });
-    </script>
+    <script src=sideNav.js></script>
+    <script src=dispImg.js></script>
   </body>
 </html>
