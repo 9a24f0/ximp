@@ -32,7 +32,7 @@
       <a href="#about">About</a>
       <button class="dropdown-btn">Data</button>
       <div class="dropdown-container">
-        <a href="#">Kaggle</a>
+        <a href="#kaggle" onclick="page('kaggle')">Kaggle</a>
         <a href="#wiki" onclick="page('wiki')">Wikimedia</a>
         <a href="#radiopaedia" onclick="page('radio')">Radiopaedia</a>
       </div>
@@ -82,6 +82,9 @@
             break;
           case "wiki":
             url = "Wikimedia/data.json";
+            break;
+          case "kaggle":
+            url = "Kaggle/data.json"
             break;
         }
 

@@ -14,7 +14,7 @@ for file in dirs:
     if (i <= 500):
         img = {
         'title': file,
-        'link': "img/" + file
+        'link': "http://127.0.0.1:5000/static/" + file
         }
         content.append(img)
     else:
