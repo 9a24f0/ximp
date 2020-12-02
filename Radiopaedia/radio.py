@@ -66,6 +66,6 @@ if __name__ == '__main__':
 			}
 			content.append(img)
 	
-	with open('radio_urls.json', 'w') as js:
+	with open('data.json', 'w') as js:
 		json.dump(content, js, indent =4)
 	
