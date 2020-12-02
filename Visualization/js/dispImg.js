@@ -10,7 +10,7 @@ function page(page) {
       url = "Wikimedia/data.json";
       break;
     case "kaggle":
-      url = "Kaggle/data.json"
+      url = "Kaggle/data.json";
       break;
   }
 
@@ -36,4 +36,4 @@ function page(page) {
 }
 
 /* display first page */
-page("kaggle")
+page("kaggle");
